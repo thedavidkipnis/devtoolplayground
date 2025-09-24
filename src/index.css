@@ -10,6 +10,9 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  background-color: var(--main-color);
+  transition: background 0.2s;
 }
 
 * {
@@ -27,6 +30,17 @@ html, body {
 .content-wrapper {
     padding: 0;
     margin: 0;
+}
+
+.content-wrapper a {
+  text-decoration: none;
+    margin-left: 80px;
+    font-size: small;
+    color: var(--secondary-color);
+}
+
+.content-wrapper a:visited {
+    color: var(--secondary-color);
 }
 
 .content-display-wrapper {

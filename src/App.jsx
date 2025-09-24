@@ -11,6 +11,11 @@ function App() {
       <div className='.content-display-wrapper'>
         {displayedContent}
       </div>
+
+      <a href='https://thedavidkipnis.github.io/portfolio2.0/' target="_blank" rel="noopener noreferrer">
+        {'>'} david kipnis, 2025
+      </a>
+      
     </div>
   )
 }
