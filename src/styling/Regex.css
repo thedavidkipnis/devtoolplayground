@@ -1,0 +1,10 @@
+.regex-content-wrapper {
+    width: 100vw;
+    height: calc(100vh - 80px);
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s, color 0.2s;
+}
