@@ -8,7 +8,7 @@ export default function Regex() {
     const [matches, setMatches] = useState([]);
 
     const handleRegexChange = (e) => {
-    const value = e.target.value;
+        const value = e.target.value;
         setRegexInput(value);
         updateMatches(value, testString);
     };
@@ -21,37 +21,42 @@ export default function Regex() {
 
     const updateMatches = (pattern, text) => {
         try {
-        const regex = new RegExp(pattern, "g");
-        const result = [...text.matchAll(regex)];
-        setMatches(result);
+            const regex = new RegExp(pattern, "g");
+            const result = [...text.matchAll(regex)];
+            setMatches(result);
         } catch {
-        setMatches([]); // invalid regex
+            setMatches([]); // invalid regex
         }
     };
 
     const renderHighlightedText = () => {
         if (!regexInput) return testString;
+        
+        try {
+            const regex = new RegExp(regexInput, "g");
+            const parts = [];
+            let lastIndex = 0;
 
-        const regex = new RegExp(regexInput, "g");
-        const parts = [];
-        let lastIndex = 0;
+            let match;
+            while ((match = regex.exec(testString)) !== null) {
+                parts.push(testString.slice(lastIndex, match.index));
+                parts.push(
+                    <span className="regex-match" key={match.index}>
+                        {match[0]}
+                    </span>
+                );
+                lastIndex = match.index + match[0].length;
 
-        let match;
-        while ((match = regex.exec(testString)) !== null) {
-        parts.push(testString.slice(lastIndex, match.index));
-        parts.push(
-            <span className="regex-match" key={match.index}>
-            {match[0]}
-            </span>
-        );
-        lastIndex = match.index + match[0].length;
+                // Avoid infinite loops for zero-length matches
+                if (match.index === regex.lastIndex) regex.lastIndex++;
+            }
 
-        // Avoid infinite loops for zero-length matches
-        if (match.index === regex.lastIndex) regex.lastIndex++;
+            parts.push(testString.slice(lastIndex));
+            return parts;
         }
-
-        parts.push(testString.slice(lastIndex));
-        return parts;
+        catch (error) {
+            return "> invalid regex pattern";
+        }
     };
 
     return (
@@ -73,21 +78,27 @@ export default function Regex() {
                 <div className="regex-panel">
                     <label>{'> '}regex:</label>
                     <input
-                    type="text"
-                    value={regexInput}
-                    onChange={handleRegexChange}
-                    placeholder="Enter regex pattern"
+                        type="text"
+                        value={regexInput}
+                        onChange={handleRegexChange}
+                        placeholder="enter regex pattern..."
+                        spellCheck='false'
                     />
 
                     <label>{'> '}test string:</label>
-                    <textarea spellCheck='false'
-                    value={testString}
-                    onChange={handleTestStringChange}
-                    placeholder="Enter string"
-                    />
+                        <div className="regex-flex-container">
+                        <textarea
+                            spellCheck='false'
+                            value={testString}
+                            onChange={handleTestStringChange}
+                            placeholder="enter string..."
+                            className="regex-textarea"
+                        />
 
-                    <label>Matches:</label>
-                    <div className="regex-output">{renderHighlightedText()}</div>
+                        <div className="regex-output scrollable">
+                            {renderHighlightedText()}
+                        </div>
+                        </div>
                 </div>
             </div>
         </div>
