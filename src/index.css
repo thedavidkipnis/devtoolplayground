@@ -2,6 +2,8 @@
     --main-color: #e4dfd8;
     --secondary-color: #161616;
     --accent-color: #b0b0b0;
+    --link-hover-color: #6f6f6f;
+    --regex-match-color: #78ca67;
     --font-mono: 'JetBrains Mono', monospace;
 }
 
@@ -25,6 +27,7 @@ html, body {
     --main-color: #161616;
     --secondary-color: #93ff78;
     --accent-color: #93ff78;
+    --link-hover-color: #43a92a;
 }
 
 .content-wrapper {
@@ -32,14 +35,20 @@ html, body {
     margin: 0;
 }
 
-.content-wrapper a {
+.portfolio-link {
   text-decoration: none;
-    margin-left: 80px;
-    font-size: small;
-    color: var(--secondary-color);
+  margin-left: 80px;
+  font-size: small;
+  color: var(--secondary-color);
+
+  transition: color 0.2s;
 }
 
-.content-wrapper a:visited {
+.portfolio-link:hover {
+  color: var(--link-hover-color) !important;
+}
+
+.portfolio-link:visited {
     color: var(--secondary-color);
 }
 

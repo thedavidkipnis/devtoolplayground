@@ -12,10 +12,10 @@ function App() {
         {displayedContent}
       </div>
 
-      <a href='https://thedavidkipnis.github.io/portfolio2.0/' target="_blank" rel="noopener noreferrer">
+      <a className="portfolio-link" href='https://thedavidkipnis.github.io/portfolio2.0/' target="_blank" rel="noopener noreferrer">
         {'>'} david kipnis, 2025
       </a>
-      
+
     </div>
   )
 }
