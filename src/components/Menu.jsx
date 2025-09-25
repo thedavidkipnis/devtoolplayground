@@ -3,7 +3,7 @@ import { useContent } from "../context/ContentContext.jsx";
 
 export default function Menu() {
 
-    const { displayedContentFlag, setDisplayedContentFlag } = useContent();
+    const { setDisplayedContentFlag } = useContent();
 
     return (
         <div className='menu-content-wrapper'>
