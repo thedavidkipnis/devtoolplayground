@@ -5,7 +5,7 @@ import "../styling/Navbar.css";
 
 export default function Navbar() {
   const { darkMode, toggleTheme } = useTheme();
-  const { setDisplayedContentFlag } = useContent();
+  const { displayedContentFlag, setDisplayedContentFlag } = useContent();
 
   const originalText = "DevTools";
   const [displayText, setDisplayText] = useState(originalText);
@@ -51,12 +51,11 @@ export default function Navbar() {
   return (
     <div className="navbar-wrapper">
       <div className="navbar-left">
-        <div className="navbar-tab" onClick={() => setDisplayedContentFlag("regex")}>
-          regex
-        </div>
-        <div className="navbar-tab" onClick={() => setDisplayedContentFlag("diff")}>
-          diff check
-        </div>
+        {displayedContentFlag !== "menu" && 
+          <div className="navbar-tab" onClick={() => setDisplayedContentFlag("menu")}>
+            menu
+          </div>
+        }
       </div>
       <div className="navbar-middle">
         <h1>{displayText}</h1>

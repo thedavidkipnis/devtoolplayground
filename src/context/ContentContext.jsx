@@ -3,6 +3,7 @@ import { createContext, useState, useContext, useEffect } from "react";
 
 import Regex from "../components/Regex";
 import DiffCheck from "../components/DiffCheck";
+import Menu from "../components/Menu";
 
 const ContentContext = createContext();
 
@@ -18,8 +19,8 @@ export function ContentProvider({ children }) {
       case "diff":
         setDisplayedContent(<DiffCheck />);
         break;
-      case "markdown":
-        // setDisplayedContent(<ResumeBoard />);
+      case "menu":
+        setDisplayedContent(<Menu />);
         break;
     }
   }, [displayedContentFlag]);
