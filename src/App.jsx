@@ -6,16 +6,19 @@ function App() {
   const { displayedContent } = useContent();
 
   return (
-    <div className='content-wrapper'>
-      <Navbar />
-      <div className='.content-display-wrapper'>
-        {displayedContent}
+    <div>
+      <div className='content-wrapper'>
+        <Navbar />
+        <div className='.content-display-wrapper'>
+          {displayedContent}
+        </div>
+
+        <a className="portfolio-link" href='https://thedavidkipnis.github.io/portfolio2.0/' target="_blank" rel="noopener noreferrer">
+          {'>'} david kipnis, 2025
+        </a>
+
       </div>
-
-      <a className="portfolio-link" href='https://thedavidkipnis.github.io/portfolio2.0/' target="_blank" rel="noopener noreferrer">
-        {'>'} david kipnis, 2025
-      </a>
-
+      <div className='mobile-support-banner'>mobile support is coming soon!</div>
     </div>
   )
 }

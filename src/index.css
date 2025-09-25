@@ -1,3 +1,22 @@
+@media (max-width: 768px) {
+
+  .content-wrapper {
+    display: none;
+  }
+
+  .mobile-support-banner {
+    display: block;
+    background-color: black;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+  }
+}
+
 :root {
     --main-color: #e4dfd8;
     --secondary-color: #161616;

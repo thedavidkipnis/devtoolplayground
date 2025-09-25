@@ -21,6 +21,18 @@
     border-top: 5px solid var(--accent-color);
 }
 
+
+@media (max-width: 768px) {
+
+  .regex-content-wrapper {
+    width: 100vw;
+    height: calc(100vh - 90px);
+    margin: 0;
+
+    border: none;
+  }
+}
+
 .regex-content-info-section {
     height: 15%;
     width: 100%;
@@ -129,16 +141,4 @@
   overflow-y: auto;
   overflow-x: hidden;
   resize: none;
-}
-
-@media (min-width: 1200px) {
-  .regex-flex-container {
-    flex-direction: row;
-  }
-
-  .regex-textarea,
-  .regex-output {
-    width: 50%;
-    min-height: unset;
-  }
 }
