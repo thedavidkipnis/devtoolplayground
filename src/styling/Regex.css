@@ -1,6 +1,5 @@
 .regex-content-wrapper {
     width: calc(100vw - 160px);
-    margin-left: 80px;
 
     height: calc(100vh - 160px);
     background-color: var(--main-color);
