@@ -33,16 +33,13 @@
 }
 
 .regex-content-info-section {
-    height: 15%;
     width: 100%;
-    display: block;
     text-align: left;
-    align-items: flex-start;
-    justify-content: flex-start;
-
     padding: 20px;
-
     color: var(--secondary-color);
+
+    height: auto;
+    flex-shrink: 0;
 }
 
 .cheatsheet-link {
@@ -60,11 +57,11 @@
 }
 
 .regex-content-section {
-    height: 85%;
+    flex: 1;
     width: 100%;
-
     padding: 20px;
     color: var(--secondary-color);
+    min-height: 0;
 }
 
 .regex-panel {
@@ -88,10 +85,10 @@
 
 .regex-flex-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; 
   gap: 20px;
-  flex: 1;               /* stretch to fill panel height */
-  min-height: 0;         /* prevents overflow issues in flexbox */
+  flex: 1;
+  min-height: 0;
 }
 
 /* test string textarea */
